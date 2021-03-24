@@ -35,12 +35,12 @@ double dichotomy(double l, double r, double accuracy) {
 double chords(double l, double r, double accuracy) {
 	double left = l, right = r;
 	if (f(left) * f2(left) > 0) {
-		while (abs(f(right)) > accuracy)
+		while (abs(f(right)) > accuracy) 
 			right = right - (f(right) * (right - left)) / (f(right) - f(left));
 		return right;
 	}
 	else {
-		while (abs(f(left)) > accuracy)
+		while (abs(f(left)) > accuracy) 
 			left = left - (f(left) * (right - left)) / (f(right) - f(left));
 		return left;
 	}
@@ -66,8 +66,8 @@ int main(){
 	cout << "Enter accuracy: ";
 	cin >> accuracy;*/
 	a = -0.6; b = 0.3; accuracy = 0.001;
-	//cout << "Root by dichotomy: " << dichotomy(a, b, accuracy) << endl;
+	cout << "Root by dichotomy: " << dichotomy(a, b, accuracy) << endl;
 	cout << "Root by chords: " << chords(a, b, accuracy) << endl;
-	//cout << "Root by newtons: " << newtons(a, b, accuracy) << endl;
+	cout << "Root by newtons: " << newtons(a, b, accuracy) << endl;
 	return 0;
 }
