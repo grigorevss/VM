@@ -15,9 +15,9 @@ double LeftRect(double left, double right, int accuracy) {
 	double result = 0, step;
 	step = (left - right) / accuracy;
 	for (int i = 0; i < accuracy; ++i) {
-		result += step * f(left + (double)i * step);
+		result += f(left + (double)i * step);
 	}
-	return result;
+	return result * step;
 }
 
 //right rectangles method
@@ -25,9 +25,9 @@ double RightRect(double left, double right, int accuracy) {
 	double result = 0, step;
 	step = (left - right) / accuracy;
 	for (int i = 1; i <= accuracy; ++i) {
-		result += step * f(left + (double)i * step);
+		result += f(left + (double)i * step);
 	}
-	return result;
+	return result * step;
 }
 
 //trapeziums method
