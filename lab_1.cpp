@@ -71,3 +71,4 @@ int main(){
 	cout << "Root by newtons: " << newtons(a, b, accuracy) << endl;
 	return 0;
 }
+
