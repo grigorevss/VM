@@ -13,7 +13,7 @@ double f(double x) {
 //left rectangles method
 double LeftRect(double left, double right, int accuracy) {
 	double result = 0, step;
-	step = (left - right) / accuracy;
+	step = (right - left) / accuracy;
 	for (int i = 0; i < accuracy; ++i) {
 		result += f(left + (double)i * step);
 	}
@@ -23,7 +23,7 @@ double LeftRect(double left, double right, int accuracy) {
 //right rectangles method
 double RightRect(double left, double right, int accuracy) {
 	double result = 0, step;
-	step = (left - right) / accuracy;
+	step = (right - left) / accuracy;
 	for (int i = 1; i <= accuracy; ++i) {
 		result += f(left + (double)i * step);
 	}
@@ -33,7 +33,7 @@ double RightRect(double left, double right, int accuracy) {
 //trapeziums method
 double Trapeze(double left, double right, int accuracy) {
 	double result = 0.5 * (f(left) + f(right));
-	double step = (left - right) / accuracy;
+	double step = (right - left) / accuracy;
 	for (int i = 1; i < accuracy; ++i) {
 		result += f(left + (double)i * step);
 	}
@@ -48,13 +48,13 @@ int main() {
 		cout << " Accuracy = " << i << endl;
 		start = clock();
 		cout << " LeftRect  result: " << LeftRect(a, b, i) << endl;
-		cout << " LeftRect    time: " << (clock() - start) / 1000.0 << " s." << endl;
+		cout << " LeftRect    time: " << (clock() - start) / CLOCKS_PER_SEC << " s." << endl;
 		start = clock();
 		cout << " RightRect result: " << RightRect(a, b, i) << endl;
-		cout << " RightRect   time: " << (clock() - start) / 1000.0 << " s." << endl;
+		cout << " RightRect   time: " << (clock() - start) / CLOCKS_PER_SEC << " s." << endl;
 		start = clock();
 		cout << " Trapeze   result: " << Trapeze(a, b, i) << endl;
-		cout << " Trapeze     time: " << (clock() - start) / 1000.0 << " s." << endl;
+		cout << " Trapeze     time: " << (clock() - start) / CLOCKS_PER_SEC << " s." << endl;
 		cout << " ################################" << endl;
 	}
 	return 0;
